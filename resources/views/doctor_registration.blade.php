@@ -35,7 +35,7 @@
                     <input type="time" class="form-control" id="inputCity">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary">Add Doctor</button>
         </div>
     </div>
 </section>

@@ -22,8 +22,9 @@
             <div class="list-group list-group-flush">
                 <a href="{{ url('doctor_registration') }}"
                     class="list-group-item list-group-item-action bg-light">Doctor Registration</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Patient Registration</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Appoinment</a>
+                <a href="{{ url('patiant_registration') }}"
+                    class="list-group-item list-group-item-action bg-light">Patient Registration</a>
+                <a href="{{ url('appoinment') }}" class="list-group-item list-group-item-action bg-light">Appoinment</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Patient Record</a>
             </div>
         </div>
