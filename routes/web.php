@@ -3,5 +3,5 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-  dd(1010);
+  return view('home');
 });
