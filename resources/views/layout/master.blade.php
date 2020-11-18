@@ -15,10 +15,13 @@
     <div class="d-flex" id="wrapper">
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading" style="border-bottom: 2px solid green">
-                <div class="font-weight-bold text-uppercase text-success">Newlife hospital</div>
+                <a href="{{ url('/') }}" style="text-decoration: none">
+                  <div class="font-weight-bold text-uppercase text-success">Newlife hospital</div>
+                </a>
             </div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Doctor Registration</a>
+                <a href="{{ url('doctor_registration') }}"
+                    class="list-group-item list-group-item-action bg-light">Doctor Registration</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Patient Registration</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Appoinment</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Patient Record</a>
