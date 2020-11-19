@@ -14,11 +14,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                  @foreach ($patiantRecords as $item)
                     <tr>
-                        <td>Saif Ahamed Sporshow</td>
-                        <td>Biswajit Biswas</td>
-                        <td>19/Oct/20</td>
+                        <td>{{ $item->fname }}</td>
+                        <td>{{ $item->lname }}</td>
+                        <td>{{ $item->created_at }}</td>
                     </tr>
+                  @endforeach
                 </tbody>
             </table>
         </div>

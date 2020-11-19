@@ -58,7 +58,8 @@ Route::post('/appoinment', function (Request $request) {
 });
 
 Route::get('/patiant_record', function () {
-  return view('patiant_record');;
+  $patiantRecords = Patiant::all();
+  return view('patiant_record', ['patiantRecords' => $patiantRecords]);
 });
 
 Route::get('foo', [testController::Class, 'index']);
