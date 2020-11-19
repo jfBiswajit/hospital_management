@@ -8,16 +8,16 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">First Name</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="First Name">
+                    <input id="fname" type="text" class="form-control" id="inputEmail4" placeholder="First Name">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Last Name</label>
-                    <input type="text" class="form-control" id="inputEmail4" placeholder="Last Name">
+                    <input id="lname" type="text" class="form-control" id="inputEmail4" placeholder="Last Name">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Specialist In</label>
-                <select name="" id="" class="form-control">
+                <select id="specialist_in" name="" id="" class="form-control">
                     <option value="1">Pediatrician</option>
                     <option value="2">Endocrinologist</option>
                     <option value="3">Neurologist</option>
@@ -28,15 +28,45 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">Available From</label>
-                    <input type="time" class="form-control" id="inputCity">
+                    <input id="available_from" type="time" class="form-control" id="inputCity">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputCity">Available To</label>
-                    <input type="time" class="form-control" id="inputCity">
+                    <input id="available_to" type="time" class="form-control" id="inputCity">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Add Doctor</button>
+            <button id="doctor_reg_btn" type="submit" class="btn btn-primary">Add Doctor</button>
         </div>
     </div>
 </section>
+@endsection
+
+@section('script')
+<script>
+    $('#doctor_reg_btn').click(function (e) {
+        const fname = $('#fname');
+        const lname = $('#lname');
+        const specialistIn = $('#specialist_in');
+        const availableFrom = $('#available_from');
+        const availableTo = $('#available_to');
+        console.log(fname.val(), lname.val(), specialistIn.val(), availableFrom.val(), availableTo.val());
+        $.ajax({
+            url: 'doctor_registration',
+            method: 'POST',
+            data: {
+                _token: "{{ csrf_token() }}",
+                fname: fname.val(),
+                lname: lname.val(),
+                specialistIn: specialistIn.val(),
+                availableFrom: availableFrom.val(),
+                availableTo: availableTo.val(),
+            },
+            success: function (response) {
+                swal("Success!", "New book added!", "success");
+                $('input').val('');
+            },
+            dataType: 'json',
+        });
+    });
+</script>
 @endsection
