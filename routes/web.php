@@ -59,3 +59,5 @@ Route::post('/appoinment', function (Request $request) {
 Route::get('/patiant_record', function () {
   return view('patiant_record');;
 });
+
+Route::get('foo', 'testController@index');
