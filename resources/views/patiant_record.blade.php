@@ -10,7 +10,7 @@
                     <tr>
                         <th>Patient Name</th>
                         <th>Appointment To</th>
-                        <th>Last Visit</th>
+                        <th>Visiting Date</th>
                     </tr>
                 </thead>
                 <tbody>
