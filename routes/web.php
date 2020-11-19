@@ -17,3 +17,7 @@ Route::get('/patiant_registration', function () {
 Route::get('/appoinment', function () {
   return view('appoinment');
 });
+
+Route::get('/patiant_record', function () {
+  dd(154);
+});

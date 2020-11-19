@@ -18,7 +18,7 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading" style="border-bottom: 2px solid green">
                 <a href="{{ url('/') }}" style="text-decoration: none">
-                  <div class="font-weight-bold text-uppercase text-success">Newlife hospital</div>
+                    <div class="font-weight-bold text-uppercase text-success">Newlife hospital</div>
                 </a>
             </div>
             <div class="list-group list-group-flush">
@@ -27,12 +27,13 @@
                 <a href="{{ url('patiant_registration') }}"
                     class="list-group-item list-group-item-action bg-light">Patient Registration</a>
                 <a href="{{ url('appoinment') }}" class="list-group-item list-group-item-action bg-light">Appoinment</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Patient Record</a>
+                <a href="{{ url('patiant_record') }}" class="list-group-item list-group-item-action bg-light">Patient
+                    Record</a>
             </div>
         </div>
 
         <div id="page-content-wrapper">
-          @yield('body')
+            @yield('body')
         </div>
     </div>
     <script src="vendor/jquery/jquery.min.js"></script>
