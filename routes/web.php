@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\testController;
 use App\Models\Appoinment;
 use App\Models\Appointment;
 use App\Models\Doctor;
@@ -60,4 +61,4 @@ Route::get('/patiant_record', function () {
   return view('patiant_record');;
 });
 
-Route::get('foo', 'testController@index');
+Route::get('foo', [testController::Class, 'index']);
