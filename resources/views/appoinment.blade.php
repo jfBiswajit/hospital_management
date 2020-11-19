@@ -8,27 +8,53 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="">Appoinment For</label>
-                    <select name="" id="" class="form-control">
-                        <option value="1">Sporshow</option>
+                    <select name="" id="patiant" class="form-control">
+                        @foreach ($patiants as $patiant)
+                        <option value="{{ $patiant->id }}">{{ $patiant->fname }} {{ $patiant->lname }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Appoinment To</label>
-                    <select name="" id="" class="form-control">
-                        <option value="1">Biswajit</option>
+                    <select name="" id="doctor" class="form-control">
+                        @foreach ($doctors as $doctor)
+                        <option value="{{ $doctor->id }}">{{ $doctor->fname }} {{ $doctor->lname }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <label for="">Date and Time</label>
-                <input class="form-control" type="datetime-local">
+                <input id="booked_at" class="form-control" type="datetime-local">
             </div>
-            <button id="doctor_reg_btn" type="submit" class="btn btn-primary">Schedule</button>
+            <button id="appoinment_btn" type="submit" class="btn btn-primary">Schedule</button>
         </div>
     </div>
 </section>
 @endsection
 
 @section('script')
+<script>
+    $('#appoinment_btn').click(function (e) {
+        const patiant = $('#patiant');
+        const doctor = $('#doctor');
+        const bookedAt = $('#booked_at');
 
+        $.ajax({
+            url: 'appoinment',
+            method: 'POST',
+            data: {
+                _token: "{{ csrf_token() }}",
+                patiant: patiant.val(),
+                doctor: doctor.val(),
+                bookedAt: bookedAt.val(),
+            },
+            success: function (response) {
+                swal("Success!", "New book added!", "success");
+                $('input').val('');
+            },
+            dataType: 'json',
+        });
+    });
+</script>
 @endsection

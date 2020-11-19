@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Appoinment;
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patiant;
 use Illuminate\Http\Request;
@@ -29,17 +31,29 @@ Route::get('/patiant_registration', function () {
 });
 
 Route::post('/patiant_registration', function (Request $request) {
-  $doctor = new Patiant();
-  $doctor->fname = $request->fname;
-  $doctor->lname = $request->lname;
-  $doctor->phone = $request->phone;
-  $doctor->address = $request->address;
-  $doctor->save();
+  $patiant = new Patiant();
+  $patiant->fname = $request->fname;
+  $patiant->lname = $request->lname;
+  $patiant->phone = $request->phone;
+  $patiant->address = $request->address;
+  $patiant->save();
   return 1;
 });
 
 Route::get('/appoinment', function () {
-  return view('appoinment');
+  $patiants = Patiant::all();
+  $doctors = Doctor::all();
+
+  return view('appoinment', compact('patiants', 'doctors'));
+});
+
+Route::post('/appoinment', function (Request $request) {
+  $appointment = new Appointment();
+  $appointment->patiant_id = $request->patiant;
+  $appointment->doctor_id = $request->doctor;
+  $appointment->booked_at = $request->bookedAt;
+  $appointment->save();
+  return 1;
 });
 
 Route::get('/patiant_record', function () {
