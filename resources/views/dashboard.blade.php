@@ -12,27 +12,27 @@
                         #388E3C;text-align: center;white-space: nowrap;vertical-align: baseline;background-color:
                         #fff;border-radius:50px;position: relative;top: -3px;line-height: 40px;height: 40px;width:
                         40px;">
-                        10</p>
+                        {{ $totalDoctors }}</p>
                 </div>
             </div>
             <div class="col">
                 <div class="reg_doctor p-3" style="background: #5E35B1; color: white; height: 20vh;text-align: center;">
-                    <h3 style="font-family: 'Lobster', cursive;">Registered Doctors</h3>
+                    <h3 style="font-family: 'Lobster', cursive;">Registered Patiants</h3>
                     <p style="display: inline-block;padding: 0;font-size: 1rem;font-weight: bold;color:
                         #5E35B1;text-align: center;white-space: nowrap;vertical-align: baseline;background-color:
                         #fff;border-radius:50px;position: relative;top: -3px;line-height: 40px;height: 40px;width:
                         40px;">
-                        10</p>
+                        {{ $totalPatiants }}</p>
                 </div>
             </div>
             <div class="col">
                 <div class="reg_doctor p-3" style="background: #1976D2; color: white; height: 20vh;text-align: center;">
-                    <h3 style="font-family: 'Lobster', cursive;">Registered Doctors</h3>
+                    <h3 style="font-family: 'Lobster', cursive;">Total Appointments</h3>
                     <p style="display: inline-block;padding: 0;font-size: 1rem;font-weight: bold;color:
                         #1976D2;text-align: center;white-space: nowrap;vertical-align: baseline;background-color:
                         #fff;border-radius:50px;position: relative;top: -3px;line-height: 40px;height: 40px;width:
                         40px;">
-                        10</p>
+                        {{ $totalAppoinments }}</p>
                 </div>
             </div>
         </div>

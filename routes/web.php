@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-  return view('dashboard');
+  $totalDoctors = Doctor::all()->count();
+  $totalPatiants = Patiant::all()->count();
+  $totalAppoinments= Appointment::all()->count();
+  return view('dashboard', compact('totalDoctors', 'totalPatiants', 'totalAppoinments'));
 });
 
 Route::get('/doctor_registration', function () {
